@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="">
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+      <!-- <PatternLayout pattern="%d{HH:mm:ss} [ %c{2} . %M %L ] %5p : %m%n" /> -->
+      <PatternLayout pattern="%d{HH:mm:ss} UNTRACED PKG [ %c . %M %L ] %5p : %m%n" />
+    </Console>
+
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss} STDOUT [ %c{2} . %M %L ] %5p - %msg%n" />
+    </Console>
+
+    <Console name="JDBC_SQL" target="SYSTEM_OUT">
+      <PatternLayout pattern="%n SQL ONLY : %5m%n" />
+    </Console>
+    <Console name="JDBC_RST_TBL" target="SYSTEM_OUT">
+      <PatternLayout pattern="%n RESULT SET TABLE : %5m%n" />
+    </Console>
+    <Console name="JDBCCONSOLE" target="SYSTEM_OUT">
+      <PatternLayout pattern="JDBC WARN : %d{HH:mm:ss} %5p [%c{2}] %M %L : %m%n" />
+    </Console>
+  </Appenders>
+  <Loggers>
+    <!-- Application Loggers -->
+    <logger name="egovframework" level="DEBUG" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </logger>
+
+
+    <logger name="org.springframework" level="ERROR" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </logger>
+
+
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="DEBUG" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="org.springframework.core" level="ERROR" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.beans" level="ERROR" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.context" level="ERROR" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </logger>
+
+
+    <Logger name="org.apache.commons" level="ERROR" additivity="false">
+      <appender-ref ref="STDOUT" />
+    </Logger>
+
+    <logger name="org.mybatis" level="ERROR" />
+
+    <Logger name="jdbc.sqlonly" level="TRACE" additivity="FALSE">
+      <appender-ref ref="JDBC_SQL" />
+    </Logger>
+    <Logger name="jdbc.resultsettable" level="TRACE" additivity="FALSE">
+      <appender-ref ref="JDBC_RST_TBL" />
+    </Logger>
+
+
+    <Logger name="log4jdbc" level="ERROR" additivity="FALSE">
+      <appender-ref ref="JDBCCONSOLE" />
+    </Logger>
+    <Logger name="jdbc.sqltiming" level="ERROR" additivity="FALSE">
+      <appender-ref ref="JDBCCONSOLE" />
+    </Logger>
+    <Logger name="jdbc.audit" level="ERROR" additivity="FALSE">
+      <appender-ref ref="JDBCCONSOLE" />
+    </Logger>
+    <Logger name="jdbc.connection" level="ERROR" additivity="FALSE">
+      <appender-ref ref="JDBCCONSOLE" />
+    </Logger>
+    <Logger name="jdbc.resultset" level="ERROR" additivity="FALSE">
+      <appender-ref ref="JDBCCONSOLE" />
+    </Logger>
+
+    <!-- Root Logger -->
+    <root level="debug">
+      <appender-ref ref="console" />
+    </root>
+  </Loggers>
+</Configuration>

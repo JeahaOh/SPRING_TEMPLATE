@@ -1,0 +1,6 @@
+#DB.DRIVER=com.mysql.jdbc.Driver
+#DB.URL=jdbc:mysql://{IP}:{PORT}/{DATABASE}
+DB.DRIVER=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+DB.URL=jdbc:log4jdbc:mysql://{IP}:{PORT}/{DATABASE}?useSSL=false&serverTimezone=Asia/Seoul
+DB.USER={ID}
+DB.PWD={PASSWORD}
